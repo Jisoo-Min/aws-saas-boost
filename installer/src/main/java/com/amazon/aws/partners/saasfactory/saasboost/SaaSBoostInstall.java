@@ -555,8 +555,9 @@ public class SaaSBoostInstall {
             }
         }
 
-        System.out.print("Would you like to install the metrics and analytics module of AWS SaaS Boost (y or n)? ");
-        this.useAnalyticsModule = Keyboard.readBoolean();
+        System.out.println("Would you like to install the metrics and analytics module of AWS SaaS Boost (y or n)? ");
+        this.useAnalyticsModule = true;
+        System.out.println("Analytics module has been activated");
 
         // If installing the analytics module, ask about QuickSight.
         if (useAnalyticsModule) {
