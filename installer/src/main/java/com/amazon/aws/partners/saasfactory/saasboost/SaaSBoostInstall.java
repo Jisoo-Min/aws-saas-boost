@@ -204,7 +204,8 @@ public class SaaSBoostInstall {
                 System.out.println(action.getPrompt());
             }
             System.out.print("Please select an option to continue (1-" + ACTION.values().length + "): ");
-            Integer option = Keyboard.readInt();
+            Integer option = 1;
+            System.out.print("Automatically selected: 1");
             if (option != null) {
                 installOption = ACTION.ofChoice(option);
                 if (installOption != null) {
