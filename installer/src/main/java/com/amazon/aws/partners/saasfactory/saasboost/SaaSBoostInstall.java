@@ -590,7 +590,7 @@ public class SaaSBoostInstall {
 
         System.out.println();
         System.out.print("Continue (y or n)? ");
-        boolean continueInstall = Keyboard.readBoolean();
+        boolean continueInstall = true;
         if (!continueInstall) {
             cancel();
         }
