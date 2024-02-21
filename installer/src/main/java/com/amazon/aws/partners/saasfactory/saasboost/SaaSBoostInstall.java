@@ -288,20 +288,21 @@ public class SaaSBoostInstall {
 
         String emailAddress;
         while (true) {
-            System.out.print("Enter the email address for your AWS SaaS Boost administrator: ");
-            emailAddress = Keyboard.readString();
-            if (validateEmail(emailAddress)) {
-                System.out.print("Enter the email address address again to confirm: ");
-                String emailAddress2 = Keyboard.readString();
-                if (emailAddress.equals(emailAddress2)) {
-                    LOGGER.info("Setting SaaS Boost admin email = [{}]", emailAddress);
-                    break;
-                } else {
-                    outputMessage("Entered value for email address does not match " + emailAddress);
-                }
-            } else {
-                outputMessage("Entered value for email address is incorrect or wrong format, please try again.");
-            }
+            System.out.println("Enter the email address for your AWS SaaS Boost administrator: ");
+            emailAddress = "admin@unicorn.day";
+            System.out.println("Your Email: " + emailAddress)
+            // if (validateEmail(emailAddress)) {
+            //     System.out.print("Enter the email address address again to confirm: ");
+            //     String emailAddress2 = Keyboard.readString();
+            //     if (emailAddress.equals(emailAddress2)) {
+            //         LOGGER.info("Setting SaaS Boost admin email = [{}]", emailAddress);
+            //         break;
+            //     } else {
+            //         outputMessage("Entered value for email address does not match " + emailAddress);
+            //     }
+            // } else {
+            //     outputMessage("Entered value for email address is incorrect or wrong format, please try again.");
+            // }
         }
 
         String systemIdentityProvider;
