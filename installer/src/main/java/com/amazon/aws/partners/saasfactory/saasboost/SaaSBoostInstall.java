@@ -275,7 +275,7 @@ public class SaaSBoostInstall {
         LOGGER.info("Performing new installation of AWS SaaS Boost");
         while (true) {
             System.out.println("Enter name of the AWS SaaS Boost environment to deploy (Ex. dev, test, uat, prod, etc.): ");
-            this.envName = workshop;
+            this.envName = "workshop";
             System.out.println("Env name: workshop");
             if (validateEnvironmentName(this.envName)) {
                 LOGGER.info("Setting SaaS Boost environment = [{}]", this.envName);
