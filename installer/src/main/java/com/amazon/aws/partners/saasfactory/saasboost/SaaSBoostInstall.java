@@ -291,6 +291,7 @@ public class SaaSBoostInstall {
             System.out.println("Enter the email address for your AWS SaaS Boost administrator: ");
             emailAddress = "admin@unicorn.day";
             System.out.println("Your Email: " + emailAddress);
+            break;
             // if (validateEmail(emailAddress)) {
             //     System.out.print("Enter the email address address again to confirm: ");
             //     String emailAddress2 = Keyboard.readString();
@@ -307,8 +308,9 @@ public class SaaSBoostInstall {
 
         String systemIdentityProvider;
         while (true) {
-            System.out.print("Enter the identity provider to use for system users (Cognito or Keycloak) Press Enter for 'Cognito': ");
-            systemIdentityProvider = Keyboard.readString();
+            System.out.println("Enter the identity provider to use for system users (Cognito or Keycloak) Press Enter for 'Cognito': ");
+            systemIdentityProvider = "COGNITO";
+            System.out.println("Your identity provider: COGNITO")
             if (isNotBlank(systemIdentityProvider)) {
                 if (systemIdentityProvider.toUpperCase().equals("COGNITO")
                         || systemIdentityProvider.toUpperCase().equals("KEYCLOAK")) {
