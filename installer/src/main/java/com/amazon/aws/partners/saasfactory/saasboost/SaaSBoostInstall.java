@@ -290,7 +290,7 @@ public class SaaSBoostInstall {
         while (true) {
             System.out.println("Enter the email address for your AWS SaaS Boost administrator: ");
             emailAddress = "admin@unicorn.day";
-            System.out.println("Your Email: " + emailAddress)
+            System.out.println("Your Email: " + emailAddress);
             // if (validateEmail(emailAddress)) {
             //     System.out.print("Enter the email address address again to confirm: ");
             //     String emailAddress2 = Keyboard.readString();
