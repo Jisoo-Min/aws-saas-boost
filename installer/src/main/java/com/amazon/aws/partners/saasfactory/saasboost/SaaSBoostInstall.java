@@ -562,7 +562,7 @@ public class SaaSBoostInstall {
         // If installing the analytics module, ask about QuickSight.
         if (useAnalyticsModule) {
             System.out.print("Would you like to setup Amazon Quicksight for the Analytics module? You must have already registered for Quicksight in your account (y or n)? ");
-            this.useQuickSight = Keyboard.readBoolean();
+            this.useQuickSight = false;
         }
         if (this.useQuickSight) {
             getQuickSightUsername();
