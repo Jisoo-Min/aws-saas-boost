@@ -274,8 +274,9 @@ public class SaaSBoostInstall {
     protected void installSaaSBoost(String existingBucket) {
         LOGGER.info("Performing new installation of AWS SaaS Boost");
         while (true) {
-            System.out.print("Enter name of the AWS SaaS Boost environment to deploy (Ex. dev, test, uat, prod, etc.): ");
-            this.envName = Keyboard.readString();
+            System.out.println("Enter name of the AWS SaaS Boost environment to deploy (Ex. dev, test, uat, prod, etc.): ");
+            this.envName = workshop;
+            System.out.println("Env name: workshop");
             if (validateEnvironmentName(this.envName)) {
                 LOGGER.info("Setting SaaS Boost environment = [{}]", this.envName);
                 break;
@@ -287,8 +288,9 @@ public class SaaSBoostInstall {
 
         String emailAddress;
         while (true) {
-            System.out.print("Enter the email address for your AWS SaaS Boost administrator: ");
-            emailAddress = Keyboard.readString();
+            System.out.println("Enter the email address for your AWS SaaS Boost administrator: ");
+            emailAddress = "unicorn@unicorn.day";
+            System.out.println("Your email: " + emailAddress)
             if (validateEmail(emailAddress)) {
                 System.out.print("Enter the email address address again to confirm: ");
                 String emailAddress2 = Keyboard.readString();
