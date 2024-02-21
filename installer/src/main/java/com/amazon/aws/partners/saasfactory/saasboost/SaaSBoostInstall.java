@@ -310,7 +310,7 @@ public class SaaSBoostInstall {
         while (true) {
             System.out.println("Enter the identity provider to use for system users (Cognito or Keycloak) Press Enter for 'Cognito': ");
             systemIdentityProvider = "COGNITO";
-            System.out.println("Your identity provider: COGNITO")
+            System.out.println("Your identity provider: COGNITO");
             if (isNotBlank(systemIdentityProvider)) {
                 if (systemIdentityProvider.toUpperCase().equals("COGNITO")
                         || systemIdentityProvider.toUpperCase().equals("KEYCLOAK")) {
