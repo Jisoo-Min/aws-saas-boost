@@ -414,8 +414,9 @@ public class SaaSBoostInstall {
 
         boolean useCustomDomainForAdminWebApp = Utils.isChinaRegion(AWS_REGION);
         if (!useCustomDomainForAdminWebApp) {
-            System.out.print("Would you like to use a custom domain name for the SaaS Boost admin web console (y or n)? ");
-            useCustomDomainForAdminWebApp = Keyboard.readBoolean();
+            System.out.println("Would you like to use a custom domain name for the SaaS Boost admin web console (y or n)? ");
+            useCustomDomainForAdminWebApp = false;
+            System.out.println("Not using a custom domain");
         }
         String adminWebAppCustomDomain = null;
         String adminWebAppHostedZone = null;
