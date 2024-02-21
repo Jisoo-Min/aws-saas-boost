@@ -203,9 +203,9 @@ public class SaaSBoostInstall {
             for (ACTION action : ACTION.values()) {
                 System.out.println(action.getPrompt());
             }
-            System.out.print("Please select an option to continue (1-" + ACTION.values().length + "): ");
+            System.out.println("Please select an option to continue (1-" + ACTION.values().length + "): ");
             Integer option = 1;
-            System.out.print("Automatically selected: 1");
+            System.out.println("Automatically selected: 1");
             if (option != null) {
                 installOption = ACTION.ofChoice(option);
                 if (installOption != null) {
@@ -935,8 +935,10 @@ public class SaaSBoostInstall {
         String currentDir = workingDir.toAbsolutePath().toString();
         LOGGER.info("Current dir = {}", currentDir);
         while (true) {
-            System.out.print("Directory path of Saas Boost download (Press Enter for '" + currentDir + "'): ");
-            String saasBoostDirectory = Keyboard.readString();
+            System.out.println("Directory path of Saas Boost download (Press Enter for '" + currentDir + "'): ");
+            String saasBoostDirectory = currentDir;
+            System.out.println("Current Directory is set as directory path of SaaS Boost download:" + currentDir);
+
             if (isNotBlank(saasBoostDirectory)) {
                 workingDir = Path.of(saasBoostDirectory);
             } else {
