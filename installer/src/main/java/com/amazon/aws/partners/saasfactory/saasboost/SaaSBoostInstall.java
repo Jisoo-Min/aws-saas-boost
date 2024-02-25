@@ -17,7 +17,7 @@
 package com.amazon.aws.partners.saasfactory.saasboost;
 
 import com.amazon.aws.partners.saasfactory.saasboost.clients.AwsClientBuilderFactory;
-import com.amazon.aws.partners.saasfactory.saasboost.model.Environment;
+import com.amazozn.aws.partners.saasfactory.saasboost.model.Environment;
 import com.amazon.aws.partners.saasfactory.saasboost.model.EnvironmentLoadException;
 import com.amazon.aws.partners.saasfactory.saasboost.model.ExistingEnvironmentFactory;
 import com.amazon.aws.partners.saasfactory.saasboost.workflow.UpdateWorkflow;
@@ -308,9 +308,8 @@ public class SaaSBoostInstall {
 
         String systemIdentityProvider;
         while (true) {
-            System.out.println("Enter the identity provider to use for system users (Cognito or Keycloak) Press Enter for 'Cognito': ");
-            systemIdentityProvider = "Cognito";
-            System.out.println("Your identity provider: Cognito");
+            System.out.print("Enter the identity provider to use for system users (Cognito or Keycloak) Press Enter for 'Cognito': ");
+            systemIdentityProvider = Keyboard.readString();
             if (isNotBlank(systemIdentityProvider)) {
                 if (systemIdentityProvider.toUpperCase().equals("COGNITO")
                         || systemIdentityProvider.toUpperCase().equals("KEYCLOAK")) {
@@ -414,9 +413,8 @@ public class SaaSBoostInstall {
 
         boolean useCustomDomainForAdminWebApp = Utils.isChinaRegion(AWS_REGION);
         if (!useCustomDomainForAdminWebApp) {
-            System.out.println("Would you like to use a custom domain name for the SaaS Boost admin web console (y or n)? ");
-            useCustomDomainForAdminWebApp = false;
-            System.out.println("Not using a custom domain");
+            System.out.print("Would you like to use a custom domain name for the SaaS Boost admin web console (y or n)? ");
+            useCustomDomainForAdminWebApp = Keyboard.readBoolean();
         }
         String adminWebAppCustomDomain = null;
         String adminWebAppHostedZone = null;
@@ -555,14 +553,13 @@ public class SaaSBoostInstall {
             }
         }
 
-        System.out.println("Would you like to install the metrics and analytics module of AWS SaaS Boost (y or n)? ");
-        this.useAnalyticsModule = true;
-        System.out.println("Analytics module has been activated");
+        System.out.print("Would you like to install the metrics and analytics module of AWS SaaS Boost (y or n)? ");
+        this.useAnalyticsModule = Keyboard.readBoolean();
 
         // If installing the analytics module, ask about QuickSight.
         if (useAnalyticsModule) {
             System.out.print("Would you like to setup Amazon Quicksight for the Analytics module? You must have already registered for Quicksight in your account (y or n)? ");
-            this.useQuickSight = false;
+            this.useQuickSight = Keyboard.readBoolean();
         }
         if (this.useQuickSight) {
             getQuickSightUsername();
@@ -590,7 +587,7 @@ public class SaaSBoostInstall {
 
         System.out.println();
         System.out.print("Continue (y or n)? ");
-        boolean continueInstall = true;
+        boolean continueInstall = Keyboard.readBoolean();
         if (!continueInstall) {
             cancel();
         }
@@ -825,8 +822,8 @@ public class SaaSBoostInstall {
             outputMessage("Amazon QuickSight user for Analytics Module: N/A");
         }
 
-        System.out.print("Continue (y or n)? - Y");
-        boolean continueInstall = true;
+        System.out.print("Continue (y or n)? ");
+        boolean continueInstall = Keyboard.readBoolean();
         if (!continueInstall) {
             outputMessage("Canceled installation of AWS SaaS Boost Analytics");
             cancel();
@@ -941,10 +938,8 @@ public class SaaSBoostInstall {
         String currentDir = workingDir.toAbsolutePath().toString();
         LOGGER.info("Current dir = {}", currentDir);
         while (true) {
-            System.out.println("Directory path of Saas Boost download (Press Enter for '" + currentDir + "'): ");
-            String saasBoostDirectory = currentDir;
-            System.out.println("Current Directory is set as directory path of SaaS Boost download:" + currentDir);
-
+            System.out.print("Directory path of Saas Boost download (Press Enter for '" + currentDir + "'): ");
+            String saasBoostDirectory = Keyboard.readString();
             if (isNotBlank(saasBoostDirectory)) {
                 workingDir = Path.of(saasBoostDirectory);
             } else {
