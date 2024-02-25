@@ -245,7 +245,7 @@ public class SaaSBoostInstall {
                 this.useAnalyticsModule = true;
                 System.out.print("Would you like to setup Amazon Quicksight for the Analytics module?"
                         + "You must have already registered for Quicksight in your account (y or n)? ");
-                this.useQuickSight = false;
+                this.useQuickSight = Keyboard.readBoolean();
                 if (this.useQuickSight) {
                     getQuickSightUsername();
                 }
@@ -273,7 +273,7 @@ public class SaaSBoostInstall {
     protected void installSaaSBoost(String existingBucket) {
         LOGGER.info("Performing new installation of AWS SaaS Boost");
         while (true) {
-            System.out.println("Enter name of the AWS SaaS Boost environment to deploy (Ex. dev, test, uat, prod, etc.): ");
+            System.out.print("Enter name of the AWS SaaS Boost environment to deploy (Ex. dev, test, uat, prod, etc.): ");
             this.envName = "workshop";
             if (validateEnvironmentName(this.envName)) {
                 LOGGER.info("Setting SaaS Boost environment = [{}]", this.envName);
@@ -287,10 +287,11 @@ public class SaaSBoostInstall {
         String emailAddress;
         while (true) {
             System.out.println("Enter the email address for your AWS SaaS Boost administrator: ");
-            emailAddress = "admin@unicorn.day";
+            emailAddress = Keyboard.readString();
+            System.out.println(emailAddress);
             if (validateEmail(emailAddress)) {
-                System.out.println("Enter the email address address again to confirm: ");
-                String emailAddress2 = "admin@unicorn.day";
+                System.out.print("Enter the email address address again to confirm: ");
+                String emailAddress2 = Keyboard.readString();
                 if (emailAddress.equals(emailAddress2)) {
                     LOGGER.info("Setting SaaS Boost admin email = [{}]", emailAddress);
                     break;
@@ -304,7 +305,7 @@ public class SaaSBoostInstall {
 
         String systemIdentityProvider;
         while (true) {
-            System.out.println("Enter the identity provider to use for system users (Cognito or Keycloak) Press Enter for 'Cognito': ");
+            System.out.print("Enter the identity provider to use for system users (Cognito or Keycloak) Press Enter for 'Cognito': ");
             systemIdentityProvider = Keyboard.readString();
             if (isNotBlank(systemIdentityProvider)) {
                 if (systemIdentityProvider.toUpperCase().equals("COGNITO")
@@ -818,8 +819,8 @@ public class SaaSBoostInstall {
             outputMessage("Amazon QuickSight user for Analytics Module: N/A");
         }
 
-        System.out.println("Continue (y or n)? ");
-        boolean continueInstall = true;
+        System.out.print("Continue (y or n)? ");
+        boolean continueInstall = Keyboard.readBoolean();
         if (!continueInstall) {
             outputMessage("Canceled installation of AWS SaaS Boost Analytics");
             cancel();
@@ -934,8 +935,8 @@ public class SaaSBoostInstall {
         String currentDir = workingDir.toAbsolutePath().toString();
         LOGGER.info("Current dir = {}", currentDir);
         while (true) {
-            System.out.println("Directory path of Saas Boost download (Press Enter for '" + currentDir + "'): ");
-            String saasBoostDirectory = currentDir;
+            System.out.print("Directory path of Saas Boost download (Press Enter for '" + currentDir + "'): ");
+            String saasBoostDirectory = Keyboard.readString();
             if (isNotBlank(saasBoostDirectory)) {
                 workingDir = Path.of(saasBoostDirectory);
             } else {
@@ -959,7 +960,7 @@ public class SaaSBoostInstall {
         Region quickSightRegion;
         QuickSightClient oldClient = null;
         while (true) {
-            System.out.println("Region where you registered for Amazon QuickSight (Press Enter for " + AWS_REGION.id() + "): ");
+            System.out.print("Region where you registered for Amazon QuickSight (Press Enter for " + AWS_REGION.id() + "): ");
             String quickSightAccountRegion = Keyboard.readString();
             if (isBlank(quickSightAccountRegion)) {
                 quickSightRegion = AWS_REGION;
