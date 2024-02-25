@@ -825,8 +825,8 @@ public class SaaSBoostInstall {
             outputMessage("Amazon QuickSight user for Analytics Module: N/A");
         }
 
-        System.out.print("Continue (y or n)? ");
-        boolean continueInstall = Keyboard.readBoolean();
+        System.out.print("Continue (y or n)? - Y");
+        boolean continueInstall = true;
         if (!continueInstall) {
             outputMessage("Canceled installation of AWS SaaS Boost Analytics");
             cancel();
