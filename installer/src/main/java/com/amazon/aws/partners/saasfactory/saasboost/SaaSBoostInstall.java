@@ -274,7 +274,7 @@ public class SaaSBoostInstall {
         LOGGER.info("Performing new installation of AWS SaaS Boost");
         while (true) {
             System.out.print("Enter name of the AWS SaaS Boost environment to deploy (Ex. dev, test, uat, prod, etc.): ");
-            this.envName = 'workshop';
+            this.envName = "workshop";
             if (validateEnvironmentName(this.envName)) {
                 LOGGER.info("Setting SaaS Boost environment = [{}]", this.envName);
                 break;
@@ -287,10 +287,10 @@ public class SaaSBoostInstall {
         String emailAddress;
         while (true) {
             System.out.print("Enter the email address for your AWS SaaS Boost administrator: ");
-            emailAddress = 'admin@unicorn.day';
+            emailAddress = "admin@unicorn.day";
             if (validateEmail(emailAddress)) {
                 System.out.print("Enter the email address address again to confirm: ");
-                String emailAddress2 = 'admin@unicorn.day';
+                String emailAddress2 = "admin@unicorn.day";
                 if (emailAddress.equals(emailAddress2)) {
                     LOGGER.info("Setting SaaS Boost admin email = [{}]", emailAddress);
                     break;
