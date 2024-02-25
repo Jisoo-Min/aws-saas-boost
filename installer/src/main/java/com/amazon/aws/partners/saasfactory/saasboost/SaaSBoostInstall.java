@@ -935,7 +935,7 @@ public class SaaSBoostInstall {
         LOGGER.info("Current dir = {}", currentDir);
         while (true) {
             System.out.print("Directory path of Saas Boost download (Press Enter for '" + currentDir + "'): ");
-            String saasBoostDirectory = Keyboard.readString();
+            String saasBoostDirectory = currentDir;
             if (isNotBlank(saasBoostDirectory)) {
                 workingDir = Path.of(saasBoostDirectory);
             } else {
