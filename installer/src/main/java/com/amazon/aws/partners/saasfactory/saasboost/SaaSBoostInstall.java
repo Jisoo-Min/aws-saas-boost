@@ -17,7 +17,7 @@
 package com.amazon.aws.partners.saasfactory.saasboost;
 
 import com.amazon.aws.partners.saasfactory.saasboost.clients.AwsClientBuilderFactory;
-import com.amazozn.aws.partners.saasfactory.saasboost.model.Environment;
+import com.amazon.aws.partners.saasfactory.saasboost.model.Environment;
 import com.amazon.aws.partners.saasfactory.saasboost.model.EnvironmentLoadException;
 import com.amazon.aws.partners.saasfactory.saasboost.model.ExistingEnvironmentFactory;
 import com.amazon.aws.partners.saasfactory.saasboost.workflow.UpdateWorkflow;
@@ -203,9 +203,8 @@ public class SaaSBoostInstall {
             for (ACTION action : ACTION.values()) {
                 System.out.println(action.getPrompt());
             }
-            System.out.println("Please select an option to continue (1-" + ACTION.values().length + "): ");
-            Integer option = 1;
-            System.out.println("Automatically selected: 1");
+            System.out.print("Please select an option to continue (1-" + ACTION.values().length + "): ");
+            Integer option = Keyboard.readInt();
             if (option != null) {
                 installOption = ACTION.ofChoice(option);
                 if (installOption != null) {
@@ -274,9 +273,8 @@ public class SaaSBoostInstall {
     protected void installSaaSBoost(String existingBucket) {
         LOGGER.info("Performing new installation of AWS SaaS Boost");
         while (true) {
-            System.out.println("Enter name of the AWS SaaS Boost environment to deploy (Ex. dev, test, uat, prod, etc.): ");
-            this.envName = "workshop";
-            System.out.println("Env name: workshop");
+            System.out.print("Enter name of the AWS SaaS Boost environment to deploy (Ex. dev, test, uat, prod, etc.): ");
+            this.envName = Keyboard.readString();
             if (validateEnvironmentName(this.envName)) {
                 LOGGER.info("Setting SaaS Boost environment = [{}]", this.envName);
                 break;
@@ -288,22 +286,20 @@ public class SaaSBoostInstall {
 
         String emailAddress;
         while (true) {
-            System.out.println("Enter the email address for your AWS SaaS Boost administrator: ");
-            emailAddress = "admin@unicorn.day";
-            System.out.println("Your Email: " + emailAddress);
-            break;
-            // if (validateEmail(emailAddress)) {
-            //     System.out.print("Enter the email address address again to confirm: ");
-            //     String emailAddress2 = Keyboard.readString();
-            //     if (emailAddress.equals(emailAddress2)) {
-            //         LOGGER.info("Setting SaaS Boost admin email = [{}]", emailAddress);
-            //         break;
-            //     } else {
-            //         outputMessage("Entered value for email address does not match " + emailAddress);
-            //     }
-            // } else {
-            //     outputMessage("Entered value for email address is incorrect or wrong format, please try again.");
-            // }
+            System.out.print("Enter the email address for your AWS SaaS Boost administrator: ");
+            emailAddress = Keyboard.readString();
+            if (validateEmail(emailAddress)) {
+                System.out.print("Enter the email address address again to confirm: ");
+                String emailAddress2 = Keyboard.readString();
+                if (emailAddress.equals(emailAddress2)) {
+                    LOGGER.info("Setting SaaS Boost admin email = [{}]", emailAddress);
+                    break;
+                } else {
+                    outputMessage("Entered value for email address does not match " + emailAddress);
+                }
+            } else {
+                outputMessage("Entered value for email address is incorrect or wrong format, please try again.");
+            }
         }
 
         String systemIdentityProvider;
