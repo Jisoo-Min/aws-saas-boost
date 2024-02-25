@@ -656,7 +656,7 @@ public class SaaSBoostInstall {
         outputMessage("Deleting the AWS SaaS Boost environment is IRREVERSIBLE and ALL deployed tenant resources will be deleted!");
         while (true) {
             System.out.print("Enter the SaaS Boost environment name to confirm: ");
-            String confirmEnvName = Keyboard.readString();
+            String confirmEnvName = "workshop";
             if (isNotBlank(confirmEnvName) && this.envName.equalsIgnoreCase(confirmEnvName)) {
                 System.out.println("SaaS Boost environment " + this.envName + " for AWS Account " + this.accountId + " in region " + AWS_REGION + " will be deleted. This action cannot be undone!");
                 break;
@@ -936,7 +936,7 @@ public class SaaSBoostInstall {
         LOGGER.info("Current dir = {}", currentDir);
         while (true) {
             System.out.print("Directory path of Saas Boost download (Press Enter for '" + currentDir + "'): ");
-            String saasBoostDirectory = Keyboard.readString();
+            String saasBoostDirectory = currentDir;
             if (isNotBlank(saasBoostDirectory)) {
                 workingDir = Path.of(saasBoostDirectory);
             } else {
