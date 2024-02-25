@@ -287,10 +287,10 @@ public class SaaSBoostInstall {
         String emailAddress;
         while (true) {
             System.out.print("Enter the email address for your AWS SaaS Boost administrator: ");
-            emailAddress = Keyboard.readString();
+            emailAddress = "admin@unicorn.day"; //new2
             if (validateEmail(emailAddress)) {
                 System.out.print("Enter the email address address again to confirm: ");
-                String emailAddress2 = Keyboard.readString();
+                String emailAddress2 = "admin@unicorn.day"; //new2
                 if (emailAddress.equals(emailAddress2)) {
                     LOGGER.info("Setting SaaS Boost admin email = [{}]", emailAddress);
                     break;
@@ -819,7 +819,7 @@ public class SaaSBoostInstall {
         }
 
         System.out.print("Continue (y or n)? ");
-        boolean continueInstall = Keyboard.readBoolean();
+        boolean continueInstall = true; //new
         if (!continueInstall) {
             outputMessage("Canceled installation of AWS SaaS Boost Analytics");
             cancel();
