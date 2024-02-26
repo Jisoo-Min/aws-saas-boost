@@ -305,7 +305,7 @@ public class SaaSBoostInstall {
         String systemIdentityProvider;
         while (true) {
             System.out.print("Enter the identity provider to use for system users (Cognito or Keycloak) Press Enter for 'Cognito': ");
-            systemIdentityProvider = "Cognito"; //new
+            systemIdentityProvider = "Cognito"; //new3
             if (isNotBlank(systemIdentityProvider)) {
                 if (systemIdentityProvider.toUpperCase().equals("COGNITO")
                         || systemIdentityProvider.toUpperCase().equals("KEYCLOAK")) {
@@ -550,12 +550,12 @@ public class SaaSBoostInstall {
         }
 
         System.out.print("Would you like to install the metrics and analytics module of AWS SaaS Boost (y or n)? ");
-        this.useAnalyticsModule = Keyboard.readBoolean();
+        this.useAnalyticsModule = true; // new3 
 
         // If installing the analytics module, ask about QuickSight.
         if (useAnalyticsModule) {
             System.out.print("Would you like to setup Amazon Quicksight for the Analytics module? You must have already registered for Quicksight in your account (y or n)? ");
-            this.useQuickSight = Keyboard.readBoolean();
+            this.useQuickSight = false; //new 3
         }
         if (this.useQuickSight) {
             getQuickSightUsername();
@@ -583,7 +583,7 @@ public class SaaSBoostInstall {
 
         System.out.println();
         System.out.print("Continue (y or n)? ");
-        boolean continueInstall = true; // new
+        boolean continueInstall = true; // new2
         if (!continueInstall) {
             cancel();
         }
