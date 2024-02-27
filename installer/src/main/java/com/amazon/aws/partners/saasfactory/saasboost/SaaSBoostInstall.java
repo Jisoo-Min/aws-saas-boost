@@ -305,7 +305,7 @@ public class SaaSBoostInstall {
         String systemIdentityProvider;
         while (true) {
             System.out.print("Enter the identity provider to use for system users (Cognito or Keycloak) Press Enter for 'Cognito': ");
-            systemIdentityProvider = "Cognito"; //new3
+            systemIdentityProvider = "Cognito"; //new
             if (isNotBlank(systemIdentityProvider)) {
                 if (systemIdentityProvider.toUpperCase().equals("COGNITO")
                         || systemIdentityProvider.toUpperCase().equals("KEYCLOAK")) {
@@ -410,7 +410,7 @@ public class SaaSBoostInstall {
         boolean useCustomDomainForAdminWebApp = Utils.isChinaRegion(AWS_REGION);
         if (!useCustomDomainForAdminWebApp) {
             System.out.print("Would you like to use a custom domain name for the SaaS Boost admin web console (y or n)? ");
-            useCustomDomainForAdminWebApp = Keyboard.readBoolean();
+            useCustomDomainForAdminWebApp = false; //new4
         }
         String adminWebAppCustomDomain = null;
         String adminWebAppHostedZone = null;
@@ -935,7 +935,7 @@ public class SaaSBoostInstall {
         LOGGER.info("Current dir = {}", currentDir);
         while (true) {
             System.out.print("Directory path of Saas Boost download (Press Enter for '" + currentDir + "'): ");
-            String saasBoostDirectory = Keyboard.readString();
+            String saasBoostDirectory = "/home/ec2-user/test/aws-saas-boost"; // new4
             if (isNotBlank(saasBoostDirectory)) {
                 workingDir = Path.of(saasBoostDirectory);
             } else {
