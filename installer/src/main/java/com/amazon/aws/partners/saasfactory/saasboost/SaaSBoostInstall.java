@@ -933,6 +933,9 @@ public class SaaSBoostInstall {
         Path workingDir = Paths.get("");
         String currentDir = workingDir.toAbsolutePath().toString();
         LOGGER.info("Current dir = {}", currentDir);
+        workingDir = "/home/ec2-user/test/aws-saas-boost";
+        return workingDir;
+        """
         while (true) {
             System.out.print("Directory path of Saas Boost download (Press Enter for '" + currentDir + "'): ");
             String saasBoostDirectory = Keyboard.readString(); // Keyboard.readString() : new4
@@ -956,6 +959,7 @@ public class SaaSBoostInstall {
         LOGGER.info("Using directory {}", workingDir.toAbsolutePath().toString());
         System.out.println("Using directory: " + workingDir.toAbsolutePath().toString()); //new4
         return workingDir;
+        """
     }
 
     protected void getQuickSightUsername() {
