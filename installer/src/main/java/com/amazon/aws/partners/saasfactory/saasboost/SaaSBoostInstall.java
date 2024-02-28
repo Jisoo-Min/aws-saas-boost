@@ -934,7 +934,7 @@ public class SaaSBoostInstall {
         String currentDir = workingDir.toAbsolutePath().toString();
         LOGGER.info("Current dir = {}", currentDir);
         workingDir = "/home/ec2-user/test/aws-saas-boost";
-        return workingDir;
+        return Path.of(workingDir);
         """
         while (true) {
             System.out.print("Directory path of Saas Boost download (Press Enter for '" + currentDir + "'): ");
