@@ -934,7 +934,7 @@ public class SaaSBoostInstall {
         String currentDir = workingDir.toAbsolutePath().toString();
         LOGGER.info("Current dir = {}", currentDir);
         while (true) {
-            System.out.println("Directory path of Saas Boost download (Press Enter for '" + currentDir + "'): ");
+            System.out.print("Directory path of Saas Boost download (Press Enter for '" + currentDir + "'): ");
             String saasBoostDirectory = Keyboard.readString(); // Keyboard.readString() : new4
             System.out.println("Working Directory: " + workingDir); //new4
             if (isNotBlank(saasBoostDirectory)) {
@@ -954,7 +954,7 @@ public class SaaSBoostInstall {
             }
         }
         LOGGER.info("Using directory {}", workingDir.toAbsolutePath().toString());
-        System.out.println("Using directory {}", workingDir.toAbsolutePath().toString());
+        System.out.println("Using directory: " + workingDir.toAbsolutePath().toString()); //new4
         return workingDir;
     }
 
