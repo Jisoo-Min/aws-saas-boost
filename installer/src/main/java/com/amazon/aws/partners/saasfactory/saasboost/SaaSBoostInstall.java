@@ -954,6 +954,7 @@ public class SaaSBoostInstall {
             }
         }
         LOGGER.info("Using directory {}", workingDir.toAbsolutePath().toString());
+        System.out.println("Using directory {}", workingDir.toAbsolutePath().toString());
         return workingDir;
     }
 
