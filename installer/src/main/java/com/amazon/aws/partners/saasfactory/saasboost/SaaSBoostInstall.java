@@ -935,14 +935,14 @@ public class SaaSBoostInstall {
         LOGGER.info("Current dir = {}", currentDir);
         while (true) {
             System.out.print("Directory path of Saas Boost download (Press Enter for '" + currentDir + "'): ");
-            String saasBoostDirectory = Keyboard.readString(); // Keyboard.readString() : new4
-            System.out.println("Working Directory: " + workingDir); //new4
+            String saasBoostDirectory = "/home/ec2-user/test/aws-saas-boost"; // Keyboard.readString() : new4
+            System.out.print("Working Directory: " + workingDir); //new4
             if (isNotBlank(saasBoostDirectory)) {
                 workingDir = Path.of(saasBoostDirectory);
             } else {
                 workingDir = Paths.get("");
             }
-            System.out.println("Working Directory: " + workingDir);//new4
+            System.out.print("Working Directory: " + workingDir);//new4
             if (Files.isDirectory(workingDir)) {
                 if (Files.isDirectory(workingDir.resolve("resources"))) {
                     break;
