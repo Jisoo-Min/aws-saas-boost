@@ -223,7 +223,7 @@ Resources:
         - Name: email
           Value: !Ref AdminEmailAddress
         - Name: email_verified
-          Value: 'true'
+          Value: 'false'
       Username: !Ref AdminUsername
       UserPoolId: !Ref UserPool
   CustomizeCognitoUiLogs:
