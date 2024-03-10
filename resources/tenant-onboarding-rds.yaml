@@ -396,7 +396,7 @@ Resources:
       Port: !Ref RDSPort
       Database: !Ref RDSDatabase
       User: !Ref RDSUsername
-      Password: Password1234 # CloudFormation doesn't allow auto decrypting of secure params here...
+      Password: !Ref RDSPasswordParam # CloudFormation doesn't allow auto decrypting of secure params here...
       BootstrapFileBucket: !Sub '{{resolve:ssm:/saas-boost/${Environment}/RESOURCES_BUCKET}}'
       BootstrapFileKey: !Ref RDSBootstrap
 Outputs:
