@@ -42,10 +42,11 @@ public class CategoryController {
 
     private String tenantId = System.getenv("TENANT_ID");
     private final static Logger LOGGER = LoggerFactory.getLogger(CategoryController.class);
-    private final static Region AWS_REGION = Region.of(System.getenv(SdkSystemSetting.AWS_REGION.environmentVariable()));
+    //private final static Region AWS_REGION = Region.of(System.getenv(SdkSystemSetting.AWS_REGION.environmentVariable()));
+    private final static Region AWS_REGION = "us-east-1"
     private final static String UNKNOWN = "UNKNOWN"; //have to instrument this for later
-    private final String streamName = System.getenv("METRICS_STREAM");
-
+    //private final String streamName = System.getenv("METRICS_STREAM");
+    private final String streamName = "sb-workshop-metrics-stream"
 
     @Autowired
     private ProductService productService;

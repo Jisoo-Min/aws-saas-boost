@@ -37,7 +37,7 @@ public class MetricEventBuilder {
         this.metricEvent.setWorkload(workload);
         return this;
     }
-
+    
     public MetricEventBuilder withContext(String context) {
         this.metricEvent.setContext(context);
         return this;

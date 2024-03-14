@@ -847,9 +847,10 @@ public class SaaSBoostInstall {
         } catch (SdkServiceException noSuchParameter) {
             LOGGER.info("Generating new random RedShift password for Analytics");
             // Save the database password as a secret
-            dbPassword = generatePassword(16);
+            dbPassword = "Passw0rd";
             try {
                 LOGGER.info("Saving RedShift password secret to Parameter Store");
+                outputMessage("Put parameter into AWS Secrets Manager");
                 ssm.putParameter(PutParameterRequest.builder()
                         .name(dbPasswordParam)
                         .type(ParameterType.SECURE_STRING)

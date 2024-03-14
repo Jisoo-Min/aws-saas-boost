@@ -340,7 +340,7 @@ Resources:
         - !GetAtt RedshiftClusterRole.Arn
       MasterUsername:
         Ref: MetricUser
-      MasterUserPassword: !Sub '{{resolve:ssm-secure:${MetricUserPasswordSSMParameter}}}'
+      MasterUserPassword: Passw0rd
       ClusterParameterGroupName:
         Ref: RedshiftClusterParameterGroup
       VpcSecurityGroupIds:
