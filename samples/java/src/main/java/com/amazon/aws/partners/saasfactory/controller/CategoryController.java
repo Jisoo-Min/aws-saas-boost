@@ -46,7 +46,7 @@ public class CategoryController {
     private final static Region AWS_REGION = Region.US_EAST_1;
     private final static String UNKNOWN = "UNKNOWN"; //have to instrument this for later
     //private final String streamName = System.getenv("METRICS_STREAM");
-    private final String streamName = "sb-workshop-metrics-stream";
+    private final String streamName = "metrics";
 
     @Autowired
     private ProductService productService;
