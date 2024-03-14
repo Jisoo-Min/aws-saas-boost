@@ -32,7 +32,7 @@ import java.util.Map;
 public class MetricsController {
 
     private String tenantId = System.getenv("TENANT_ID");
-    private final static Region AWS_REGION = "us-east-1";
+    private final static Region AWS_REGION = Region.US_EAST_1;
     //private final static Region AWS_REGION = Region.of(System.getenv(SdkSystemSetting.AWS_REGION.environmentVariable()));
     private final String streamName = "sb-workshop-metrics-stream";
     //private final String streamName = System.getenv("METRICS_STREAM");
